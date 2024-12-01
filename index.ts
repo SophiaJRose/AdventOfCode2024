@@ -1,7 +1,7 @@
 async function loadSolutions() {
     let solutionsList = <HTMLElement>document.getElementById("solutions-list");
     let solutionTemplate = <HTMLElement>document.getElementById("solution-template");
-    for (let i: number = 1; i < 3; i++) {
+    for (let i: number = 1; i < 26; i++) {
         try {
             let solutionScript = await import("./solutions/day" + i + ".js");
             let solutionEntry = <HTMLElement>solutionTemplate.cloneNode(true);
@@ -38,6 +38,7 @@ async function loadSolutions() {
             })
             solutionsList.insertAdjacentElement("beforeend", solutionEntry);
         } catch (err) {
+            console.log(err);
             console.log("Solution for day " + i + " not found");
         }
     }
