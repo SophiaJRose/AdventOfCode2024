@@ -17,14 +17,13 @@ function solution(input: string, removals: boolean): string {
                 console.log("Inputs contains NaNs.");
                 return "Error parsing input."
             }
-            let unsafe: number = findUnsafe(levels);
-            if (unsafe == -1) {
+            if (isSafe(levels)) {
                 safeReports++;
             } else if (removals) {
                 for (let i = 0; i < levels.length; i++) {
                     let levelsCopy = levels.slice();
                     levelsCopy.splice(i,1);
-                    if (findUnsafe(levelsCopy) == -1) {
+                    if (isSafe(levelsCopy)) {
                         safeReports++;
                         break;
                     }
@@ -38,14 +37,14 @@ function solution(input: string, removals: boolean): string {
     }
 }
 
-function findUnsafe(levels: number[]): number {
+function isSafe(levels: number[]): boolean {
     let lastDiff: number = 0;
     for (let i = 1; i < levels.length; i++) {
         let diff: number = levels[i] - levels[i-1];
         if (diff == 0 || Math.abs(diff) > 3 || diff * lastDiff < 0) {
-            return i;
+            return false;
         }
         lastDiff = diff;
     }
-    return -1;
+    return true;
 }
