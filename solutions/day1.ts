@@ -1,8 +1,8 @@
-export function partOne(input: string) {
+export function partOne(input: string): string {
     let left: number[] = [];
     let right: number[] = [];
     try {
-        let lines: string[] = input.split("\n");
+        let lines: string[] = input.trim().split("\n");
         for (let line of lines) {
             let numbers: string[] = line.split("   ");
             let l: number = Number(numbers[0]);
@@ -34,11 +34,11 @@ export function partOne(input: string) {
     }
 }
 
-export function partTwo(input: string) {
+export function partTwo(input: string): string {
     let left: number[] = [];
     let rightAppearances: number[] = [];
     try {
-        let lines: string[] = input.split("\n");
+        let lines: string[] = input.trim().split("\n");
         for (let line of lines) {
             let numbers: string[] = line.split("   ");
             let l: number = Number(numbers[0]);
