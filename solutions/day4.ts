@@ -41,7 +41,7 @@ export function partOne(input: string): string {
         return String(count);
     } catch (err) {
         console.log(err);
-        return "Error when solving";
+        return "Error during solving";
     }
 }
 
@@ -74,6 +74,6 @@ export function partTwo(input: string): string {
         return String(count);
     } catch (err) {
         console.log(err);
-        return "Error when solving";
+        return "Error during solving";
     }
 }

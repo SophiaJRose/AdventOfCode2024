@@ -25,6 +25,6 @@ function solution(input: string, disable: boolean): string {
         return String(total);
     } catch (err) {
         console.log(err);
-        return "Error when solving";
+        return "Error during solving";
     }
 }

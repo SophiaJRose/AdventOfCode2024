@@ -33,7 +33,7 @@ function solution(input: string, removals: boolean): string {
         return String(safeReports)
     } catch (err) {
         console.log(err);
-        return "Error when solving";
+        return "Error during solving";
     }
 }
 
