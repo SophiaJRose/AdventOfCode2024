@@ -15,7 +15,7 @@ function solution(input: string, corrections: boolean): string {
         updates = sections[1].split("\n");
     } catch (err) {
         console.log(err);
-        return "Error parsing input.";
+        return "Error parsing input";
     }
     try {
         let count: number = 0;

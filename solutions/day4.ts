@@ -8,7 +8,7 @@ export function partOne(input: string): string {
         }
     } catch (err) {
         console.log(err);
-        return "Error parsing input.";
+        return "Error parsing input";
     }
     try {
         let count: number = 0;
@@ -55,7 +55,7 @@ export function partTwo(input: string): string {
         }
     } catch (err) {
         console.log(err);
-        return "Error parsing input.";
+        return "Error parsing input";
     }
     try {
         let count: number = 0;

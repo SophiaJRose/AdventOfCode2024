@@ -15,7 +15,7 @@ export function partOne(input: string): string {
         }
     } catch (err) {
         console.log(err);
-        return "Error parsing input.";
+        return "Error parsing input";
     }
     try {
         left.sort();
@@ -55,7 +55,7 @@ export function partTwo(input: string): string {
         }
     } catch (err) {
         console.log(err);
-        return "Error parsing input.";
+        return "Error parsing input";
     }
     try {
         let similarScore: number = 0;

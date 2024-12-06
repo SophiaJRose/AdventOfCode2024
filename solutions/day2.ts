@@ -15,7 +15,7 @@ function solution(input: string, removals: boolean): string {
             levels = line.split(" ").map((x) => Number(x));
             if (levels.some((x) => Number.isNaN(x))) {
                 console.log("Inputs contains NaNs.");
-                return "Error parsing input."
+                return "Error parsing input"
             }
             if (isSafe(levels)) {
                 safeReports++;
