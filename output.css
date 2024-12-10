@@ -579,12 +579,44 @@ video {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-24 {
+  width: 6rem;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
 .min-w-28 {
   min-width: 7rem;
 }
 
 .max-w-52 {
   max-width: 13rem;
+}
+
+.max-w-64 {
+  max-width: 16rem;
+}
+
+.max-w-56 {
+  max-width: 14rem;
+}
+
+.max-w-60 {
+  max-width: 15rem;
 }
 
 .items-center {
