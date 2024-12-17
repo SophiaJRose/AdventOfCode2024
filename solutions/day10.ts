@@ -48,7 +48,7 @@ function solution(input: string, ratings: boolean): string {
                     queue.push([i-1, j]);
                 }
                 if (i < grid.length-1 && grid[i+1][j] == grid[i][j] + 1) {
-                    let t = queue.push([i+1, j]);
+                    queue.push([i+1, j]);
                 }
                 if (j > 0 && grid[i][j-1] == grid[i][j] + 1) {
                     queue.push([i, j-1]);
