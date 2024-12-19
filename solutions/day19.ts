@@ -6,7 +6,7 @@ export function partTwo(input: string) {
     return solution(input, true);
 }
 
-// Dynamic programming map
+// Memoization table
 // Only needs design as key, because contents to towels array will always be the same
 let matchesMap: Map<String, Number> = new Map();
 
