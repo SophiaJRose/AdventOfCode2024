@@ -567,6 +567,10 @@ video {
   margin-bottom: 4rem;
 }
 
+.mb-24 {
+  margin-bottom: 6rem;
+}
+
 .mr-12 {
   margin-right: 3rem;
 }
@@ -579,20 +583,20 @@ video {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
+.\!grid {
+  display: grid !important;
+}
+
 .grid {
   display: grid;
 }
 
-.w-8 {
-  width: 2rem;
-}
-
-.w-24 {
-  width: 6rem;
-}
-
-.w-12 {
-  width: 3rem;
+.contents {
+  display: contents;
 }
 
 .w-16 {
@@ -603,20 +607,8 @@ video {
   min-width: 7rem;
 }
 
-.max-w-52 {
-  max-width: 13rem;
-}
-
-.max-w-64 {
-  max-width: 16rem;
-}
-
 .max-w-56 {
   max-width: 14rem;
-}
-
-.max-w-60 {
-  max-width: 15rem;
 }
 
 .items-center {
@@ -724,6 +716,10 @@ video {
 .text-violet-300 {
   --tw-text-opacity: 1;
   color: rgb(196 181 253 / var(--tw-text-opacity));
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .file\:mr-2::file-selector-button {
