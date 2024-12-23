@@ -9,8 +9,6 @@ export function partOne(input) {
     }
     try {
         let graph = buildGraph(connections);
-        console.log(graph.nodes);
-        console.log(graph.edges);
         // Find all triangles
         let triangles = [];
         for (let edge of graph.edges) {
@@ -29,12 +27,10 @@ export function partOne(input) {
                 if (edge2 == undefined) {
                     continue;
                 }
-                console.log(`Found triangle ${node1.name}, ${node2.name}, ${node.name}`);
                 let triangle = [node, node1, node2];
                 triangles.push(triangle);
             }
         }
-        console.log(triangles);
         let tTris = triangles.filter((x) => x.some((y) => y.name.startsWith("t")));
         return String(tTris.length);
     }
@@ -54,8 +50,6 @@ export function partTwo(input) {
     }
     try {
         let graph = buildGraph(connections);
-        console.log(graph.nodes);
-        console.log(graph.edges);
         // Find all maximal cliques using Bron-Kerbosch algorithm
         let cliques = bronKerbosch(new Set(), new Set(graph.nodes), new Set());
         let cliquesArray = [...cliques];
