@@ -4,11 +4,12 @@ async function loadSolutions() {
     let solutionTemplate = document.getElementById("solution-template");
     for (let i = 1; i < 26; i++) {
         try {
-            let solutionScript = await import("./solutions/day" + i + ".js");
+            let solutionScript = await import(`./solutions/day${i}.js`);
             let solutionEntry = solutionTemplate.cloneNode(true);
             let entryChildren = solutionEntry.children;
             let dayLabel = entryChildren[0];
-            dayLabel.textContent = "Day " + i;
+            dayLabel.textContent = `Day ${i}`;
+            dayLabel.href = `https://adventofcode.com/2024/day/${i}`;
             let fileInput = entryChildren[1];
             let part1Button = entryChildren[2];
             let part1Output = entryChildren[3];
@@ -38,6 +39,8 @@ async function loadSolutions() {
             part2Button.addEventListener("click", function () {
                 part2Output.textContent = solutionScript.partTwo(input);
             });
+            let sourceLink = entryChildren[6];
+            sourceLink.href = `https://github.com/SophiaJRose/AdventOfCode2024/blob/main/solutions/day${i}.ts`;
             solutionsList.insertAdjacentElement("beforeend", solutionEntry);
         }
         catch (err) {
