@@ -24,7 +24,6 @@ export function partOne(input) {
                 num = mult2048 ^ num;
                 num = num % 16777216n;
             }
-            console.log(num);
             sum += num;
         }
         return String(sum);
@@ -48,11 +47,11 @@ export function partTwo(input) {
     }
     try {
         let allPrices = [];
-        let allChanges = [];
         let allSeqPrices = [];
+        // While calculating all prices, for each sequence of 4 changes, save the corresponding price to a map if it has not already occurred for that buyer
+        // Then, for any particular sequence, we can find what any particular buyer will pay for that sequence
         for (let num of secretNumbers) {
             let buyerPrices = [num % 10n];
-            let buyerChanges = [];
             let prevPrice = 0n;
             let buyerSeqPrices = new Map();
             let seq = [];
@@ -79,18 +78,15 @@ export function partTwo(input) {
                         buyerSeqPrices.set(seq.join(","), price);
                     }
                 }
-                buyerChanges.push(change);
                 buyerPrices.push(price);
                 prevPrice = price;
             }
             allPrices.push(buyerPrices);
-            allChanges.push(buyerChanges);
             allSeqPrices.push(buyerSeqPrices);
         }
-        console.log("All prices and changes found");
-        console.log(allSeqPrices);
         // Find sequence by brute force
         // Each change can be from -9 to +9, i.e. 17 values, seq is 4 changes, to 17^4 possible sequences
+        // For each sequence, check total that each buyer pays for it from map constructed earlier
         let maxBananas = 0n;
         let maxSequence = [0n, 0n, 0n, 0n];
         for (let a = -9n; a < 10n; a++) {
@@ -105,47 +101,14 @@ export function partTwo(input) {
                                 bananas += sell;
                             }
                         }
-                        console.log(`--- Seq: ${seq}, bananas: ${bananas}, maxBananas: ${maxBananas}`);
                         if (bananas > maxBananas) {
                             maxBananas = bananas;
                             maxSequence = seq.slice();
                         }
-                        // let bananas: bigint = 0n
-                        // let seq: bigint[] = [a,b,c,d];
-                        // // For a given sequence, go through each buyers changes until sequence is matched, then add resulting bananas
-                        // // Once all buyers checked, compare bananas to max bananas
-                        // for (let i = 0; i < allChanges.length; i++) {
-                        //     let changes = allChanges[i];
-                        //     let seqFound: number = 0;
-                        //     // If any element of sequence doesn't appear, skip
-                        //     if (!changes.includes(a) || !changes.includes(b) || !changes.includes(c) || !changes.includes(d)) {
-                        //         console.log("Skipped");
-                        //         continue;
-                        //     }
-                        //     for (let j = 0; j < changes.length; j++) {
-                        //         let change = changes[j];
-                        //         if (change == seq[seqFound]) {
-                        //             seqFound++;
-                        //         } else {
-                        //             seqFound = 0;
-                        //         }
-                        //         if (seqFound == 4) {
-                        //             console.log(`Seq: ${seq}, bananas: ${bananas}, maxBananas: ${maxBananas}, i: ${i}, price: ${allPrices[i][j]}`);
-                        //             bananas += allPrices[i][j+1];
-                        //             break;
-                        //         }
-                        //     }
-                        // }
-                        // console.log(`--- Seq: ${seq}, bananas: ${bananas}, maxBananas: ${maxBananas}`)
-                        // if (bananas > maxBananas) {
-                        //     maxBananas = bananas;
-                        //     maxSequence = seq.slice();
-                        // }
                     }
                 }
             }
         }
-        console.log(maxSequence);
         return String(maxBananas);
     }
     catch (err) {
